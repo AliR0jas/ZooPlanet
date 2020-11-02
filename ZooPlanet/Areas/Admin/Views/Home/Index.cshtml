@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ZooPlanet.Models.Especies>
+@{
+    Layout = "_Layout";
+    int n = 1;
+}
+
+<h1>Lista de Especies</h1>
+
+<table>
+    <colgroup>
+        <col style="width:50px" />
+        <col style="width:40px" />
+        <col />
+        <col style="width:50%" />
+    </colgroup>
+    <caption>
+        <a href="~/Admin/Home/Agregar"><i class="fa fa-plus"></i> Agregar Especie</a>
+    </caption>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th colspan="2">Especie</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="center">@(n++)</td>
+                <td style="width:40px"><img src="/clases/@(item.IdClase).png"></td>
+                <td>@item.Especie</td>
+                <td class="center">
+                    <a href="/Admin/Home/Editar/@item.Id"><i class="fa fa-edit"></i> Editar</a>
+                    <a href="/Admin/Home/Eliminar/@item.Id"><i class="fa fa-remove"></i> Eliminar</a>
+                    <a href="/Admin/Home/Imagen/@item.Id"><i class="fa fa-image"></i> Imagen</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

@@ -1,0 +1,23 @@
+﻿@model  IEnumerable<ZooPlanet.Models.Especies>
+@{
+    Layout = "_Layout";
+}
+
+<h1>@ViewBag.Clase</h1>
+
+<ul class="especies">
+    @foreach (var item in Model)
+    {
+    <li>
+        <div>
+            <img src="~/especies/@(item.Id).jpg" />
+        </div>
+        <h2>@item.Especie </h2>
+        <p><label>Habitat: </label>@item.Habitat</p>
+        <p><label>Peso: </label>@(item.Peso==null?"":item.Peso.Value.ToString("0.00kg"))</p>
+        <p><label>Tamaño: </label>@(item.Tamaño==null?"":item.Tamaño.Value.ToString("0cm"))</p>
+        <p>@item.Observaciones</p>
+    </li>
+    }
+</ul>
+

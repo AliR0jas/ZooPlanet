@@ -1,0 +1,20 @@
+﻿@model ZooPlanet.Models.Especies
+@{
+	Layout = "_Layout";
+}
+
+<h1>Eliminar Especies</h1>
+
+<form method="post" action="~/Admin/Home/Eliminar">
+	<label>Nombre:</label>
+	<input  type="text" readonly="readonly" value="@Model.Especie"/>
+	<label>Clase:</label>
+	<input  type="text" readonly="readonly" value="@Model.IdClaseNavigation.Nombre"/>
+	<input type="hidden"  asp-for="Id"/>
+
+
+	<input type="submit" value="Eliminar" />
+	<a href="~/Admin">
+		<input type="button" value="Cancelar" />
+	</a>
+</form>

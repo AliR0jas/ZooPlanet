@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ZooPlanet.Models.Clase>
+@{
+    Layout = "_Layout";
+}
+<div class="slides">
+    <img src="~/images/carousel1.jpg" />
+</div>
+
+<h1>Clasificación de los vertebrados</h1>
+
+<div class="clases">
+    @foreach (var item in Model)
+    {
+        <div>
+            <a href="~/Clasificación/@item.Nombre">
+                <img src="~/clases/@(item.Id).jpg" />
+                <h1>@item.Nombre</h1>
+                <p>@item.Descripcion.</p>
+            </a>
+        </div>
+    }
+</div>
